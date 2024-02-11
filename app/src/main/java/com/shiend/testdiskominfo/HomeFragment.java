@@ -1,6 +1,9 @@
 package com.shiend.testdiskominfo;
 
 import android.content.Intent;
+import android.media.AudioManager;
+import android.media.MediaPlayer;
+import android.os.AsyncTask;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -13,6 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
+import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.regex.Matcher;
@@ -36,6 +40,10 @@ public class HomeFragment extends Fragment {
 
     private WebView webView;
     private TextView btnVideoLainnya;
+    private Button btnPlay;
+    private MediaPlayer mediaPlayer;
+    private boolean prepared = false;
+    private boolean started = false;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -80,6 +88,7 @@ public class HomeFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         btnVideoLainnya = view.findViewById(R.id.textView5);
+        btnPlay = view.findViewById(R.id.btnPlay);
         webView = view.findViewById(R.id.webView1);
         String Video = "<iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/hMuG1Lr4a5k?si=9-pTVbgJT3rrt8ft\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen></iframe>";
         webView.loadData(Video, "text/html", "utf-8");
@@ -94,7 +103,40 @@ public class HomeFragment extends Fragment {
             }
         });
 
+        String stream = "https://radio.kuansing.go.id/streaming.php";
+        mediaPlayer = new MediaPlayer();
+        mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
+        new PlayerTask().execute(stream);
+
+        btnPlay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mediaPlayer.start();
+            }
+        });
     }
 
 
+    private class PlayerTask extends AsyncTask<String, Void, Boolean> {
+
+        @Override
+        protected Boolean doInBackground(String... strings) {
+
+            try {
+                mediaPlayer.setDataSource(strings[0]);
+                mediaPlayer.prepare();
+                prepared = true;
+            } catch (Exception e) {
+
+            }
+
+            return prepared;
+        }
+
+        @Override
+        protected void onPostExecute(Boolean aBoolean) {
+            super.onPostExecute(aBoolean);
+
+        }
+    }
 }
