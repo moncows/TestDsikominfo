@@ -449,18 +449,65 @@
                             app:layout_constraintTop_toTopOf="parent">
 
                             <LinearLayout
-                                android:gravity="center"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:background="@drawable/radio"
+                                android:gravity="center"
                                 android:orientation="vertical"
                                 android:scaleType="fitXY">
 
-                                <Button
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="@dimen/spacing_medium"
+                                    android:layout_marginTop="@dimen/spacing_large"
+                                    android:gravity="center"
+                                    android:orientation="horizontal">
+
+                                    <LinearLayout
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="100.9 FM"
+                                            android:textColor="@color/white"
+                                            android:textSize="12dp"
+                                            android:textStyle="bold" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="LPP KUANSING"
+                                            android:textColor="@color/white"
+                                            android:textSize="8dp" />
+
+                                    </LinearLayout>
+
+                                    <ImageView
+                                        android:layout_width="30dp"
+                                        android:layout_height="40dp"
+                                        android:src="@drawable/mic" />
+
+                                </LinearLayout>
+
+                                <ImageButton
                                     android:id="@+id/btnPlay"
                                     android:layout_width="50dp"
                                     android:layout_height="50dp"
-                                    android:layout_gravity="center" />
+                                    android:layout_gravity="center"
+                                    android:background="@drawable/btnplay" />
+
+                                <ImageButton
+                                    android:id="@+id/btnstop"
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    android:layout_gravity="center"
+                                    android:background="@drawable/btnstop"
+                                    android:visibility="gone" />
+
 
                             </LinearLayout>
                         </androidx.cardview.widget.CardView>

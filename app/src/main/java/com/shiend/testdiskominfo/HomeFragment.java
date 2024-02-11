@@ -17,6 +17,7 @@ import android.view.ViewGroup;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import java.util.regex.Matcher;
@@ -40,7 +41,7 @@ public class HomeFragment extends Fragment {
 
     private WebView webView;
     private TextView btnVideoLainnya;
-    private Button btnPlay;
+    private ImageButton btnPlay, btnStop;
     private MediaPlayer mediaPlayer;
     private boolean prepared = false;
     private boolean started = false;
@@ -89,6 +90,7 @@ public class HomeFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         btnVideoLainnya = view.findViewById(R.id.textView5);
         btnPlay = view.findViewById(R.id.btnPlay);
+        btnStop = view.findViewById(R.id.btnstop);
         webView = view.findViewById(R.id.webView1);
         String Video = "<iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/hMuG1Lr4a5k?si=9-pTVbgJT3rrt8ft\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen></iframe>";
         webView.loadData(Video, "text/html", "utf-8");
@@ -108,10 +110,23 @@ public class HomeFragment extends Fragment {
         mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
         new PlayerTask().execute(stream);
 
+        btnPlay.setEnabled(false);
+
         btnPlay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mediaPlayer.start();
+                btnPlay.setVisibility(View.GONE);
+                btnStop.setVisibility(View.VISIBLE);
+            }
+        });
+
+        btnStop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mediaPlayer.pause();
+                btnPlay.setVisibility(View.VISIBLE);
+                btnStop.setVisibility(View.GONE);
             }
         });
     }
@@ -121,7 +136,6 @@ public class HomeFragment extends Fragment {
 
         @Override
         protected Boolean doInBackground(String... strings) {
-
             try {
                 mediaPlayer.setDataSource(strings[0]);
                 mediaPlayer.prepare();
@@ -136,7 +150,7 @@ public class HomeFragment extends Fragment {
         @Override
         protected void onPostExecute(Boolean aBoolean) {
             super.onPostExecute(aBoolean);
-
+            btnPlay.setEnabled(true);
         }
     }
 }
