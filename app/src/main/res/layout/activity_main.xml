@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/teal_50"
+
     tools:context=".MainActivity">
 
     <LinearLayout
@@ -19,8 +19,8 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:layout_width="20dp"
-            android:layout_height="20dp"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
             android:layout_gravity="center"
             android:layout_marginLeft="@dimen/spacing_large"
             android:src="@drawable/logo" />
@@ -45,8 +45,8 @@
             android:layout_height="wrap_content">
 
             <ImageView
-                android:layout_width="25dp"
-                android:layout_height="25dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:layout_marginRight="@dimen/spacing_large"
                 android:src="@drawable/notif"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -61,7 +61,7 @@
         android:id="@+id/frameLayout"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+        app:layout_constraintBottom_toTopOf="@+id/lynMenu"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -72,86 +72,82 @@
     </FrameLayout>
 
     <LinearLayout
-        android:id="@+id/linearLayout2"
+        android:id="@+id/lynMenu"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="?actionBarSize"
         android:background="@color/white"
-        android:elevation="10dp"
-        android:gravity="center_vertical"
-        android:weightSum="10"
+        android:orientation="horizontal"
+        android:weightSum="5"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
-
         <LinearLayout
             android:layout_width="0dp"
-            android:layout_height="fill_parent"
-            android:layout_weight="2"
-            android:padding="20dp">
+            android:layout_height="match_parent"
+            android:layout_weight="1">
 
             <ImageView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="2"
-                android:padding="8dp"
-                android:src="@drawable/home" />
-
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/spacing_large"
+                android:src="@drawable/doc" />
         </LinearLayout>
 
-
         <LinearLayout
             android:layout_width="0dp"
-            android:layout_height="fill_parent"
-            android:layout_weight="2"
-            android:padding="20dp">
+            android:layout_height="match_parent"
+            android:layout_weight="1">
 
             <ImageView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="2"
-                android:padding="5dp"
-                android:layout_marginTop="5dp"
-                android:src="@drawable/buku" />
-
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/spacing_large"
+                android:src="@drawable/komp" />
         </LinearLayout>
 
-        <ImageView
+        <LinearLayout
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:padding="@dimen/spacing_small"
-            android:src="@drawable/homebtn" />
+            android:layout_height="match_parent"
+            android:layout_weight="1"></LinearLayout>
 
         <LinearLayout
             android:layout_width="0dp"
-            android:layout_height="fill_parent"
-            android:layout_weight="2"
-            android:padding="15dp">
+            android:layout_height="match_parent"
+            android:layout_weight="1">
 
             <ImageView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/spacing_large"
                 android:src="@drawable/chat" />
-
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="0dp"
-            android:layout_height="fill_parent"
-            android:layout_weight="2">
+            android:layout_height="match_parent"
+            android:layout_weight="1">
 
             <ImageView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="2"
-                android:padding="15dp"
-                android:src="@drawable/profile" />
-
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/spacing_large"
+                android:src="@drawable/profil" />
         </LinearLayout>
+
 
     </LinearLayout>
+
+    <ImageView
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="10dp"
+        android:elevation="10dp"
+        android:src="@drawable/home1"
+        app:layout_constraintBottom_toBottomOf="@+id/lynMenu"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

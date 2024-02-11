@@ -3,28 +3,28 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@drawable/background"
     android:layout_height="match_parent"
-    android:background="@color/backgroundsplash"
     tools:context=".SplashActivity">
 
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="184dp"
-        android:layout_height="256dp"
+        android:layout_width="230dp"
+        android:layout_height="310dp"
         android:paddingBottom="-10dp"
-        android:src="@drawable/fotobupati"
+        android:src="@drawable/fotogedefixbanget"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.541"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.208" />
+        app:layout_constraintVertical_bias="0.256" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="193dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:gravity="center"
         android:text="Drs. Suhardiman Amby Ak. MM"
         android:textSize="12dp"
@@ -46,8 +46,8 @@
 
     <TextView
         android:id="@+id/textview4"
-        android:layout_width="314dp"
-        android:layout_height="117dp"
+        android:layout_width="315dp"
+        android:layout_height="wrap_content"
         android:layout_margin="@dimen/spacing_large"
         android:layout_marginStart="40dp"
         android:layout_marginEnd="40dp"
@@ -62,7 +62,8 @@
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
         android:text="Powered By"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/textview4"
@@ -84,14 +85,13 @@
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
         android:layout_margin="40dp"
+        android:layout_marginTop="15dp"
         app:cardBackgroundColor="@color/blue_500"
         app:cardCornerRadius="15dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2"
-        app:layout_constraintVertical_bias="0.123">
+        app:layout_constraintTop_toBottomOf="@+id/imageView2">
 
         <TextView
             android:layout_width="wrap_content"

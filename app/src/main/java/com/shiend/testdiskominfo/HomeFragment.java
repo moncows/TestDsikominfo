@@ -1,16 +1,22 @@
 package com.shiend.testdiskominfo;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
+import android.widget.TextView;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -29,6 +35,7 @@ public class HomeFragment extends Fragment {
     private String mParam2;
 
     private WebView webView;
+    private TextView btnVideoLainnya;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -72,12 +79,22 @@ public class HomeFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
+        btnVideoLainnya = view.findViewById(R.id.textView5);
         webView = view.findViewById(R.id.webView1);
-        String Video = "<iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/hMuG1Lr4a5k?si=9-pTVbgJT3rrt8ft\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen></iframe>";
+        String Video = "<iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/hMuG1Lr4a5k?si=9-pTVbgJT3rrt8ft\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen></iframe>";
         webView.loadData(Video, "text/html", "utf-8");
         webView.getSettings().setJavaScriptEnabled(true);
         webView.setWebChromeClient(new WebChromeClient());
 
+        btnVideoLainnya.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), MoreVideosActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
+
+
 }
