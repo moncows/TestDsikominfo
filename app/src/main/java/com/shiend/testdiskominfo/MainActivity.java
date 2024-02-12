@@ -9,7 +9,9 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
@@ -35,11 +37,13 @@ public class MainActivity extends FragmentActivity {
     private Fragment frm;
 
     private Services services;
+    private ImageView btnHomePage, btnMenu1, btnMenu2, btnMenu3, btnMenu4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         services = Utils.getClient().create(Services.class);
         services.getVideo().enqueue(new Callback<JsonObject>() {
             @Override
@@ -61,6 +65,62 @@ public class MainActivity extends FragmentActivity {
         frameLayout = findViewById(R.id.frameLayout);
         frm = new HomeFragment();
         loadFragment(frm);
+
+        initView();
+        initClick();
+
+    }
+
+    private void initView() {
+        btnHomePage = findViewById(R.id.btHomePage);
+        btnMenu1 = findViewById(R.id.btnMenu1);
+        btnMenu2 = findViewById(R.id.btnMenu2);
+        btnMenu3 = findViewById(R.id.btnMenu3);
+        btnMenu4 = findViewById(R.id.btnMenu4);
+
+    }
+
+    private void initClick() {
+        btnHomePage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                frm = new HomeFragment();
+                loadFragment(frm);
+            }
+        });
+
+        btnMenu1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                frm = new FragmentMenu1();
+                loadFragment(frm);
+            }
+        });
+
+
+        btnMenu2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                frm = new FragmentMenu2();
+                loadFragment(frm);
+            }
+        });
+        btnMenu3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                frm = new FragmentMenu3();
+                loadFragment(frm);
+            }
+        });
+
+        btnMenu4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                frm = new FragmentMenu4();
+                loadFragment(frm);
+            }
+        });
+
     }
 
     private void showData(List<VideoResp> list) {
@@ -78,4 +138,18 @@ public class MainActivity extends FragmentActivity {
         transaction.commit();
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        frm = new HomeFragment();
+        loadFragment(frm);
+    }
+
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        frm = new HomeFragment();
+        loadFragment(frm);
+    }
 }

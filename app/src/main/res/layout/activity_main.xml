@@ -88,6 +88,7 @@
             android:layout_weight="1">
 
             <ImageView
+                android:id="@+id/btnMenu1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="@dimen/spacing_large"
@@ -100,6 +101,7 @@
             android:layout_weight="1">
 
             <ImageView
+                android:id="@+id/btnMenu2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="@dimen/spacing_large"
@@ -117,6 +119,7 @@
             android:layout_weight="1">
 
             <ImageView
+                android:id="@+id/btnMenu3"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="@dimen/spacing_large"
@@ -129,6 +132,7 @@
             android:layout_weight="1">
 
             <ImageView
+                android:id="@+id/btnMenu4"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="@dimen/spacing_large"
@@ -139,6 +143,7 @@
     </LinearLayout>
 
     <ImageView
+        android:id="@+id/btHomePage"
         android:layout_width="75dp"
         android:layout_height="75dp"
         android:layout_gravity="center"

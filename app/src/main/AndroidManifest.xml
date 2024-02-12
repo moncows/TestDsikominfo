@@ -30,6 +30,9 @@
         tools:ignore="GoogleAppIndexingWarning"
         tools:targetApi="31">
         <activity
+            android:name=".NotifActivity"
+            android:exported="false" />
+        <activity
             android:name=".MoreVideosActivity"
             android:exported="false" />
         <activity

@@ -152,5 +152,11 @@ public class HomeFragment extends Fragment {
             super.onPostExecute(aBoolean);
             btnPlay.setEnabled(true);
         }
+
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
     }
 }
